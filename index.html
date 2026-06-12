@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Syed Zubair Ahmed — Data Aspirant</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0d0f14;
+    --bg2: #13161e;
+    --bg3: #1a1e29;
+    --accent: #4f8ef7;
+    --accent2: #a78bfa;
+    --text: #e8eaf0;
+    --muted: #8890a4;
+    --border: rgba(255,255,255,0.08);
+    --radius: 10px;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+  }
+
+  /* NAV */
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 28px 0 22px;
+    border-bottom: 0.5px solid var(--border);
+    margin-bottom: 80px;
+  }
+  .nav-logo {
+    font-size: 23px;
+    font-weight: 500;
+    color: var(--text);
+    letter-spacing: 0.02em;
+    line-height: 1.3;
+  }
+  .nav-logo span { color: var(--accent); }
+  .nav-logo-sub {
+    font-size: 13px;
+    color: var(--muted);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+  }
+  .nav-links { display: flex; gap: 28px; }
+  .nav-links a {
+    text-decoration: none;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 14px;
+    font-weight: 500;
+    transition: opacity 0.2s;
+  }
+  .nav-links a:hover { opacity: 0.75; }
+
+  /* HERO */
+  .hero { margin-bottom: 96px; }
+  .hero-eyebrow {
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 18px;
+    font-weight: 500;
+  }
+  .hero h1 {
+    font-size: clamp(34px, 6vw, 54px);
+    font-weight: 600;
+    line-height: 1.15;
+    color: var(--text);
+    margin-bottom: 20px;
+    letter-spacing: -0.02em;
+  }
+  .hero h1 em {
+    font-style: normal;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .hero-sub {
+    font-size: 16px;
+    color: #c8ccd8;
+    max-width: 500px;
+    margin-bottom: 36px;
+    line-height: 1.75;
+  }
+  .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    padding: 11px 24px;
+    border-radius: var(--radius);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: opacity 0.2s;
+  }
+  .btn-primary:hover { opacity: 0.85; }
+  .btn-ghost {
+    background: transparent;
+    color: var(--text);
+    border: 0.5px solid rgba(255,255,255,0.18);
+    padding: 11px 24px;
+    border-radius: var(--radius);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: border-color 0.2s;
+  }
+  .btn-ghost:hover { border-color: rgba(255,255,255,0.4); }
+
+  /* SECTION LABEL */
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 28px;
+    font-weight: 500;
+  }
+
+  /* ABOUT */
+  .about { margin-bottom: 96px; }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+  .about-text p {
+    color: #c8ccd8;
+    margin-bottom: 14px;
+    font-size: 15px;
+    line-height: 1.75;
+  }
+  .about-text p strong { color: var(--text); font-weight: 500; }
+  .about-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .stat-card {
+    background: var(--bg2);
+    border: 0.5px solid var(--border);
+    border-radius: var(--radius);
+    padding: 18px;
+  }
+  .stat-num {
+    font-size: 26px;
+    font-weight: 600;
+    color: var(--text);
+    letter-spacing: -0.02em;
+    margin-bottom: 4px;
+  }
+  .stat-num span { color: var(--accent); }
+  .stat-desc { font-size: 12px; color: var(--muted); }
+
+  /* SKILLS */
+  .skills { margin-bottom: 96px; }
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+  }
+  .skill-chip {
+    background: var(--bg2);
+    border: 0.5px solid var(--border);
+    border-radius: var(--radius);
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    color: var(--text);
+  }
+  .skill-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .dot-blue { background: var(--accent); }
+  .dot-purple { background: var(--accent2); }
+  .dot-teal { background: #2dd4bf; }
+  .dot-amber { background: #f59e0b; }
+
+  /* PROJECTS */
+  .projects { margin-bottom: 96px; }
+  .projects-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .project-card {
+    background: var(--bg2);
+    border: 0.5px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .project-card:hover { border-color: rgba(79,142,247,0.3); background: var(--bg3); }
+  .project-tag {
+    display: inline-block;
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-bottom: 14px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+  }
+  .tag-blue { background: rgba(79,142,247,0.12); color: var(--accent); }
+  .tag-purple { background: rgba(167,139,250,0.12); color: var(--accent2); }
+  .tag-teal { background: rgba(45,212,191,0.12); color: #2dd4bf; }
+  .tag-amber { background: rgba(245,158,11,0.12); color: #f59e0b; }
+  .project-card h3 {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 8px;
+  }
+  .project-card p {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.65;
+    margin-bottom: 16px;
+  }
+  .project-links { display: flex; gap: 8px; margin-bottom: 14px; }
+  .project-link {
+    font-size: 11px;
+    color: var(--accent);
+    text-decoration: none;
+    background: rgba(79,142,247,0.08);
+    border: 0.5px solid rgba(79,142,247,0.2);
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-weight: 500;
+    transition: background 0.2s;
+  }
+  .project-link:hover { background: rgba(79,142,247,0.18); }
+  .project-tools { display: flex; gap: 6px; flex-wrap: wrap; }
+  .tool-pill {
+    font-size: 11px;
+    color: var(--muted);
+    background: var(--bg3);
+    border: 0.5px solid var(--border);
+    padding: 3px 9px;
+    border-radius: 20px;
+  }
+
+  /* CERTIFICATIONS */
+  .certifications { margin-bottom: 96px; }
+  .cert-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .cert-card {
+    background: var(--bg2);
+    border: 0.5px solid rgba(79,142,247,0.15);
+    border-radius: var(--radius);
+    padding: 20px 22px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .cert-card:hover { border-color: rgba(79,142,247,0.4); background: var(--bg3); }
+  .cert-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, rgba(79,142,247,0.2), rgba(100,200,255,0.1));
+    border: 0.5px solid rgba(79,142,247,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 16px;
+  }
+  .cert-info { flex: 1; }
+  .cert-name {
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.5;
+    margin-bottom: 5px;
+    background: linear-gradient(90deg, #7dd4fc, #4f8ef7, #93c5fd);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .cert-issuer {
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+  .cert-link {
+    display: inline-block;
+    font-size: 11px;
+    color: var(--accent);
+    text-decoration: none;
+    background: rgba(79,142,247,0.08);
+    border: 0.5px solid rgba(79,142,247,0.2);
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-weight: 500;
+    transition: background 0.2s;
+  }
+  .cert-link:hover { background: rgba(79,142,247,0.22); }
+
+  /* CONTACT */
+  .contact { margin-bottom: 48px; }
+  .contact-inner {
+    background: var(--bg2);
+    border: 0.5px solid var(--border);
+    border-radius: 14px;
+    padding: 52px 40px;
+    text-align: center;
+  }
+  .contact-inner h2 {
+    font-size: 26px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 12px;
+    letter-spacing: -0.02em;
+  }
+  .contact-inner p {
+    color: var(--muted);
+    font-size: 15px;
+    margin-bottom: 28px;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .contact-links { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+  /* FOOTER */
+  footer {
+    border-top: 0.5px solid var(--border);
+    padding-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  @media (max-width: 620px) {
+    .about-grid { grid-template-columns: 1fr; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .cert-grid { grid-template-columns: 1fr; }
+    nav { flex-direction: column; gap: 16px; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div>
+    <div class="nav-logo">Syed Zubair Ahmed<span></span></div>
+    <div class="nav-logo-sub">Hyderabad, Telangana</div>
+  </div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#certifications">Certifications</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-eyebrow">Data Aspirant</p>
+  <h1>Driving Growth Through<br><em>Measured Insights</em></h1>
+  <p class="hero-sub">I am a Computer Science Engineering (Data Science) Graduate with projects involving insight generation, modelling and data analysis.</p>
+  <div class="hero-ctas">
+    <a class="btn-primary" href="tel:9703905023">Contact</a>
+    <a class="btn-ghost" href="https://github.com/syed-zubair-ahmed/Resume/blob/main/Syed%20Zubair%20Ahmed%20Data%20Science%20Graduate.pdf" target="_blank">View Resume</a>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <p class="section-label">About me</p>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>I'm a <strong>CSE(Data Science) graduate</strong> experienced in delivering real-world data projects involving cleaning complex datasets and building interactive dashboards.</p>
+      <p>Focused on uncovering <strong>strategic findings</strong> and providing clear team communication.</p>
+    </div>
+    <div class="about-stats">
+      <div class="stat-card">
+        <div class="stat-num">17<span>+</span></div>
+        <div class="stat-desc">projects completed</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">12<span>+</span></div>
+        <div class="stat-desc">tools & skills</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">CSE(DS)<span></span></div>
+        <div class="stat-desc">Data Science graduate</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">Strategical Analysis<span></span></div>
+        <div class="stat-desc">And more...</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="skills" id="skills">
+  <p class="section-label">Skills & tools</p>
+  <div class="skills-grid">
+    <div class="skill-chip"><span class="skill-dot dot-blue"></span>Python (incl. Libraries)</div>
+    <div class="skill-chip"><span class="skill-dot dot-teal"></span>Excel</div>
+    <div class="skill-chip"><span class="skill-dot dot-blue"></span>SQL</div>
+    <div class="skill-chip"><span class="skill-dot dot-purple"></span>Power BI</div>
+    <div class="skill-chip"><span class="skill-dot dot-purple"></span>Tableau</div>
+    <div class="skill-chip"><span class="skill-dot dot-amber"></span>Statistics</div>
+    <div class="skill-chip"><span class="skill-dot dot-teal"></span>Google Sheets</div>
+    <div class="skill-chip"><span class="skill-dot dot-blue"></span>Machine Learning</div>
+    <div class="skill-chip"><span class="skill-dot dot-purple"></span>Deep Learning</div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="projects" id="projects">
+  <p class="section-label">Projects</p>
+  <div class="projects-grid">
+
+    <div class="project-card">
+      <span class="project-tag tag-blue">SQL · Python · Power BI</span>
+      <h3>A/B Testing Experiment for Conversion & Revenue Optimization</h3>
+      <p>One segment showed a statistically significant uplift in conversion and revenue, while another showed no meaningful impact — reinforcing the need for segment-level analysis before rolling out changes broadly.</p>
+      <div class="project-links">
+        <a class="project-link" href="https://www.linkedin.com/posts/syedzubairahmed11bigdata11analytics_the-insights-activity-7430492514199089152-o5U0?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFpVpjEBd_1O1alCoxhZkkq9mokg2sgrETU" target="_blank">LinkedIn</a>
+        <a class="project-link" href="https://github.com/syed-zubair-ahmed/A-B-Testing-Experiment-for-Conversion-Revenue-Optimization" target="_blank">GitHub</a>
+      </div>
+      <div class="project-tools">
+        <span class="tool-pill">SQL</span>
+        <span class="tool-pill">Python</span>
+        <span class="tool-pill">Power BI</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <span class="project-tag tag-purple">SQL · Python · Power BI</span>
+      <h3>SaaS Revenue & Performance Analysis for a B2B Business</h3>
+      <p>Overall profit margin sits at ~12.5%, with the SMB segment driving the highest profit share. A small group of customers accounts for most losses, and discounts above ~20% tend to result in negative profit on average.</p>
+      <div class="project-links">
+        <a class="project-link" href="https://www.linkedin.com/posts/syedzubairahmed11bigdata11analytics_insights-of-b2b-activity-7445009635067199488-gwQN?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFpVpjEBd_1O1alCoxhZkkq9mokg2sgrETU" target="_blank">LinkedIn</a>
+        <a class="project-link" href="https://github.com/syed-zubair-ahmed/SaaS_Revenue_and_performance_analysis_for_B2B_business" target="_blank">GitHub</a>
+      </div>
+      <div class="project-tools">
+        <span class="tool-pill">SQL</span>
+        <span class="tool-pill">Python</span>
+        <span class="tool-pill">Power BI</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <span class="project-tag tag-teal">SQL · Power BI</span>
+      <h3>Supply Chain Profitability & Margin Optimization</h3>
+      <p>Profit of $1.02M on $3.49M revenue, with a small group of SKUs driving most losses. Manufacturing costs are the primary margin lever, and certain suppliers consistently underperform on profitability.</p>
+      <div class="project-links">
+        <a class="project-link" href="https://www.linkedin.com/posts/syedzubairahmed11bigdata11analytics_project-supply-chain-profitability-margin-activity-7447593145971679232-PQPa?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFpVpjEBd_1O1alCoxhZkkq9mokg2sgrETU" target="_blank">LinkedIn</a>
+        <a class="project-link" href="https://github.com/syed-zubair-ahmed/Supply-Chain-Profitability-Margin-Optimization" target="_blank">GitHub</a>
+      </div>
+      <div class="project-tools">
+        <span class="tool-pill">SQL</span>
+        <span class="tool-pill">Power BI</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <span class="project-tag tag-amber">SQL · Power BI</span>
+      <h3>IT System Failure Root Cause Analysis</h3>
+      <p>Across 1,000 incidents, each root cause — Database Issue, Network Delay, and Memory Leak — shows a distinct error-code and condition pattern. Database Issue is most frequent at 340 incidents, while severity stays consistent (~3/7) across all failure types.</p>
+      <div class="project-links">
+        <a class="project-link" href="https://www.linkedin.com/posts/syedzubairahmed11bigdata11analytics_project-it-system-failure-root-cause-analysis-ugcPost-7470706381449490433-R7g6/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFpVpjEBd_1O1alCoxhZkkq9mokg2sgrETU" target="_blank">LinkedIn</a>
+        <a class="project-link" href="https://github.com/syed-zubair-ahmed/Root-Cause-Analysis-for-IT-System-Failure" target="_blank">GitHub</a>
+      </div>
+      <div class="project-tools">
+        <span class="tool-pill">SQL</span>
+        <span class="tool-pill">Power BI</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section class="certifications" id="certifications">
+  <p class="section-label">Certifications</p>
+  <div class="cert-grid">
+
+    <div class="cert-card">
+      <div class="cert-icon">1</div>
+      <div class="cert-info">
+        <div class="cert-name">Google Advanced Data Analytics Professional Certificate</div>
+        <div class="cert-issuer">Coursera · Google</div>
+        <a class="cert-link" href="https://www.coursera.org/account/accomplishments/specialization/certificate/TKK6SUGMI1XJ" target="_blank">View Certificate</a>
+      </div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-icon">2</div>
+      <div class="cert-info">
+        <div class="cert-name">The Complete Data Analyst Bootcamp — Basic to Advanced</div>
+        <div class="cert-issuer">Udemy</div>
+        <a class="cert-link" href="https://www.udemy.com/certificate/UC-0117e68d-ba0e-45d3-9100-363e2656d642/" target="_blank">View Certificate</a>
+      </div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-icon">3</div>
+      <div class="cert-info">
+        <div class="cert-name">Advanced Power BI: Expert Data Analysis and Visualization</div>
+        <div class="cert-issuer">Udemy</div>
+        <a class="cert-link" href="https://www.udemy.com/certificate/UC-fa353796-6249-4266-9ef3-0e6c59b652a5/" target="_blank">View Certificate</a>
+      </div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-icon">4</div>
+      <div class="cert-info">
+        <div class="cert-name">The Ultimate SQL Bootcamp</div>
+        <div class="cert-issuer">Udemy</div>
+        <a class="cert-link" href="https://www.udemy.com/certificate/UC-81d52603-ced7-40c6-b12c-576ae4b54e4e/" target="_blank">View Certificate</a>
+      </div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-icon">5</div>
+      <div class="cert-info">
+        <div class="cert-name">Complete Machine Learning With Python</div>
+        <div class="cert-issuer">Udemy</div>
+        <a class="cert-link" href="https://www.udemy.com/certificate/UC-4382f369-ad67-4c3a-aabd-14a774d0e0b2/" target="_blank">View Certificate</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <h2>Let's work together</h2>
+    <p>To Contact me:</p>
+    <div class="contact-links">
+      <a class="btn-primary" href="mailto:syedzubair17723@gmail.com">Send an email</a>
+      <a class="btn-ghost" href="http://www.linkedin.com/in/syedzubairahmed11bigdata" target="_blank">LinkedIn</a>
+      <a class="btn-ghost" href="https://github.com/syed-zubair-ahmed" target="_blank">GitHub</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>Syed Zubair Ahmed — Data Aspirant</span>
+  <span>2026</span>
+</footer>
+
+</body>
+</html>
